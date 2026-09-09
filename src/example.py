@@ -1,18 +1,22 @@
-try:
-    file = open("datax", "r")
-    content = file.read()
-    file.close()
-    print(f'"{content}" was read from a file named "data" in the current directory.')
+import random
 
-except FileNotFoundError:
-    print("File not found.")
+def machine():
+	measurement = random.random()
+	if measurement > 0.6: raise Exception("Out of bounds")
+	return measurement
 
-except PermissionError:
-    print("You don't have permission to write to this file.")
+goodParts = 0
+badParts = 0
+yieldHigh = 0
+yieldLow = 1
+for n in range(100):
+	try:
+		measurement = machine()
+		if measurement < yieldLow: yieldLow = measurement
+		if measurement > yieldHigh: yieldHigh = measurement
+		goodParts += 1
+	except:
+		badParts += 1
 
-except IsADirectoryError:
-    print("Filename is a folder.")
-
-except OSError as ex:
-    # Catches FileExistsError, disk failures, or other system limits
-    print(f"An OS error occurred: {ex}")
+print(f"goodParts: {goodParts}, badParts: {badParts}")
+print(f"yieldLow: {yieldLow}, yieldHigh: {yieldHigh}")
