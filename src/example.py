@@ -1,2 +1,5 @@
-stuff = input("This goes to stdout as a prompt: ")
-print(f'"{stuff}" was input from stdin.')
+stuff = input("Enter a number: ")
+print( type(stuff) )
+number = float(stuff)
+print( type(number) )
+print(f"{number:.2f}")
