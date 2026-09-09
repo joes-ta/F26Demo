@@ -1,1 +1,2 @@
-print("print is sending this string to stdout.")
+stuff = input()
+print(f'"{stuff}" was input from stdin.')
