@@ -1,28 +1,34 @@
-import sys
+def doNothing():
+	pass
 
-print(f"dir(sys): {dir(sys)}\n")
-print(f"type(sys): {type(sys)}\n")
-print(f"id(sys): {id(sys)}\n")
+print(f"dir(doNothing): {dir(doNothing)}\n")
+print(f"type(doNothing): {type(doNothing)}\n")
+print(f"id(doNothing): {id(doNothing)}\n")
+print(f"call of doNothing(): {doNothing()}\n")
 
-print(f"dir(sys.argv): {dir(sys.argv)}\n")
-print(f"type(sys.argv): {type(sys.argv)}\n")
-print(f"id(sys.argv): {id(sys.argv)}\n")
+def doNothing():
+	return None
+print(f"call of doNothing()): {doNothing()}\n")
 
-print(f"len(sys.argv): {len(sys.argv)}")
-print(f"type(len(sys.argv)): {type(len(sys.argv))}\n")
+def douglasAdams():
+	return 42
+print(f"call of douglasAdams()): {douglasAdams()}\n")
 
-print(f"sys.argv[0]: {sys.argv[0]}")
-print(f"type(sys.argv[0]): {type(sys.argv[0])}\n")
+def doNothing(milk):
+	if milk == "fresh": return "spoiled"
+	else: return milk
+print(f"doNothing(\"fresh\")): {doNothing("fresh")}\n")
 
-if len(sys.argv) > 1:
-	print(f"sys.argv[1]: {sys.argv[1]}\n")
+def doNothing(milk, flour):
+	if milk == "fresh": 
+		if flour != None: return "matzah"
+		else: return milk
+	else: return "spoiled"
+print(f"doNothing(\"fresh\", \"white\"): {doNothing("fresh", "white")}\n")
 
-print("Arguments by index")
-
-for index in range(len(sys.argv)):
-	print(f"sys.argv[{index}]: {sys.argv[index]}")
-
-print("\nArguments by iteration")
-
-for arg in sys.argv:
-	print(f"{arg}: {sys.argv.index(arg)}")
+def doNothing(milk, flour=None):
+	if milk == "fresh": 
+		if flour != None: return "matzah"
+		else: return "spoiled"
+	else: return "spoiled"
+print(f"doNothing(\"fresh\", \"white\"): {doNothing("fresh")}\n")
